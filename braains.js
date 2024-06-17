@@ -37,22 +37,17 @@ document.body.appendChild(imgAvatar);
 // console.log("window.innerWidth: ", window.innerWidth);
 // console.log("window.innerHeight: ", window.innerHeight);
 
-function moverCenarioParaDireita() { 
-    // declaração da função que move o cenário para a esquerda, enquanto o avatar se "move" para a direita
+function moverCenarioParaDireita() { /*declaração da função que move o cenário para a esquerda, enquanto o avatar se "move" para a direita*/
     let leftCenario = parseInt(imgCenario.style.left.replace("px","")); // declaração da variável leftCenario que captura a posição da esquerda do cenário
-    let posicaoFinalDireitaCenario = parseInt(imgCenario.style.width.replace("px","")) - centroTelaHorizontal - metadeLarguraAvatar; // declaração da variável posicaoFinalDireitaCenario 
-    //que define a posição final do cenário, qual seja a fórmula: o tamanho total do cenário, menos metade do tamanho da tela, menos metade do tamanho do avatar
-
-    if (Math.abs(leftCenario) < posicaoFinalDireitaCenario) { // valida se a posição da esquerda do cenário é "menor" que a posição final da direita do cenário, 
-        //utilizando a função Math.abs() para remover o negativo do número da variável "leftCenario".
+    let posicaoFinalDireitaCenario = parseInt(imgCenario.style.width.replace("px","")) - centroTelaHorizontal - metadeLarguraAvatar; // declaração da variável posicaoFinalDireitaCenario que define a posição final do cenário, qual seja a fórmula: o tamanho total do cenário, menos metade do tamanho da tela, menos metade do tamanho do avatar
+    if (Math.abs(leftCenario) < posicaoFinalDireitaCenario) { // valida se a posição da esquerda do cenário é "menor" que a posição final da direita do cenário, utilizando a função Math.abs() para remover o negativo do número da variável "leftCenario"
         imgCenario.style.left = (leftCenario - tamanhoMovimento) + "px"; // move o cenário para a esquerda, utilizando css
     } // fim do bloco de códigos da validação if
 } // fim do bloco de códigos da função moverCenarioParaDireita()
 
 function moverCenarioParaEsquerda() {
     let leftCenario = parseInt(imgCenario.style.left.replace("px",""));
-    let posicaoFinalEsquerdaCenario = parseInt(imgCenario.style.width.replace("px","")) + centroTelaHorizontal + metadeLarguraAvatar;
-    if (Math.abs(leftCenario) < posicaoAvatarEsquerdaInicial) {
+    if (leftCenario < posicaoAvatarEsquerdaInicial) {
         imgCenario.style.left = (leftCenario + tamanhoMovimento) + "px";
     }
 }
@@ -140,3 +135,4 @@ function moverCenarioParaBaixo() {
         }
     }
 })();
+
